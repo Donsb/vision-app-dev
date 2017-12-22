@@ -16,7 +16,7 @@ class CameraVC: UIViewController {
     @IBOutlet weak var flashBtn: UIButton!
     @IBOutlet weak var identificationLbl: UILabel!
     @IBOutlet weak var confidenceLbl: UILabel!
-    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var cameraView: RoundedShadowView!
     
     // Functions
     

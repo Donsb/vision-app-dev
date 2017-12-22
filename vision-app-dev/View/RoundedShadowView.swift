@@ -14,7 +14,10 @@ class RoundedShadowView: UIView {
     
     // Awake From Nib.
     override func awakeFromNib() {
-        <#code#>
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowRadius = 15
+        self.layer.shadowOpacity = 0.75
+        self.layer.cornerRadius = self.frame.height / 2
     } // END Awake From Nib.
     
     
