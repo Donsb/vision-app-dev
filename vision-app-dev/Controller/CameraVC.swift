@@ -10,6 +10,14 @@ import UIKit
 
 class CameraVC: UIViewController {
     
+    //
+    
+    @IBOutlet weak var captureImageView: UIImageView!
+    @IBOutlet weak var flashBtn: UIButton!
+    @IBOutlet weak var identificationLbl: UILabel!
+    @IBOutlet weak var confidenceLbl: UILabel!
+    @IBOutlet weak var cameraView: UIView!
+    
     // Functions
     
     // View Did Load.
@@ -19,11 +27,6 @@ class CameraVC: UIViewController {
     } // END View Did Load.
     
     
-    // Did Receive Memory Warning.
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    } // END Did Receive Memory Warning.
     
     
 } // END Class.
