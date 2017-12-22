@@ -102,6 +102,7 @@
                         <outlet property="confidenceLbl" destination="XMP-ge-buO" id="aDL-lF-qBH"/>
                         <outlet property="flashBtn" destination="Vq6-tE-fXP" id="neC-dQ-lKt"/>
                         <outlet property="identificationLbl" destination="1KI-9e-2FK" id="pqp-Bu-WIV"/>
+                        <outlet property="roundedLblView" destination="k1Y-Vw-tv5" id="NKU-Wq-GKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
