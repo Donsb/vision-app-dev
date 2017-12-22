@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A589E60A1FEDB6E4008C7534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A589E6091FEDB6E4008C7534 /* AppDelegate.swift */; };
-		A589E60C1FEDB6E4008C7534 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A589E60B1FEDB6E4008C7534 /* ViewController.swift */; };
+		A589E60C1FEDB6E4008C7534 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A589E60B1FEDB6E4008C7534 /* CameraVC.swift */; };
 		A589E60F1FEDB6E4008C7534 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A589E60D1FEDB6E4008C7534 /* Main.storyboard */; };
 		A589E6111FEDB6E4008C7534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A589E6101FEDB6E4008C7534 /* Assets.xcassets */; };
 		A589E6141FEDB6E4008C7534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A589E6121FEDB6E4008C7534 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		A589E6061FEDB6E4008C7534 /* vision-app-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vision-app-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A589E6091FEDB6E4008C7534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A589E60B1FEDB6E4008C7534 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A589E60B1FEDB6E4008C7534 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		A589E60E1FEDB6E4008C7534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A589E6101FEDB6E4008C7534 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A589E6131FEDB6E4008C7534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +54,38 @@
 		A589E6081FEDB6E4008C7534 /* vision-app-dev */ = {
 			isa = PBXGroup;
 			children = (
+				A589E61D1FEDB724008C7534 /* Resources */,
+				A589E61C1FEDB71A008C7534 /* View */,
+				A589E61B1FEDB709008C7534 /* Controller */,
 				A589E6091FEDB6E4008C7534 /* AppDelegate.swift */,
-				A589E60B1FEDB6E4008C7534 /* ViewController.swift */,
 				A589E60D1FEDB6E4008C7534 /* Main.storyboard */,
 				A589E6101FEDB6E4008C7534 /* Assets.xcassets */,
 				A589E6121FEDB6E4008C7534 /* LaunchScreen.storyboard */,
 				A589E6151FEDB6E4008C7534 /* Info.plist */,
 			);
 			path = "vision-app-dev";
+			sourceTree = "<group>";
+		};
+		A589E61B1FEDB709008C7534 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A589E60B1FEDB6E4008C7534 /* CameraVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A589E61C1FEDB71A008C7534 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A589E61D1FEDB724008C7534 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A589E60C1FEDB6E4008C7534 /* ViewController.swift in Sources */,
+				A589E60C1FEDB6E4008C7534 /* CameraVC.swift in Sources */,
 				A589E60A1FEDB6E4008C7534 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
