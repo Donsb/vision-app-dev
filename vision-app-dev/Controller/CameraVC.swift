@@ -27,6 +27,7 @@ class CameraVC: UIViewController {
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
     var flashControlState: FlashState = .off
+    var speechSynthesizer = AVSpeechSynthesizer()
     
     // IBOutlets
     
@@ -49,6 +50,7 @@ class CameraVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
+        speechSynthesizer.delegate = self
     } // END View Did Appear.
     
     
@@ -165,6 +167,16 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
         }
         
     } // END Photo Output.
+    
+} // END Extension.
+
+
+extension CameraVC: AVSpeechSynthesizerDelegate {
+    
+    //
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        // to code.
+    }
     
 }
 
