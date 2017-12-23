@@ -127,6 +127,13 @@ class CameraVC: UIViewController {
     } // END Results Method.
     
     
+    // Synthesize Speech.
+    func synthesizeSpeech(fromString string: String) {
+        let speechUtterance = AVSpeechUtterance(string: string)
+        speechSynthesizer.speak(speechUtterance)
+    } // END Synthesize Speech.
+    
+    
     // Flash Button Was Pressed.
     @IBAction func flashBtnWasPressed(_ sender: Any) {
         switch flashControlState {
