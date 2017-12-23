@@ -11,6 +11,13 @@ import AVFoundation
 import CoreML
 import Vision
 
+// enum
+
+enum FlashState {
+    case off
+    case on
+} // END enum.
+
 class CameraVC: UIViewController {
     
     // Instance Variables
@@ -19,6 +26,7 @@ class CameraVC: UIViewController {
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
+    var flashControlState: FlashState = .off
     
     // IBOutlets
     
@@ -34,7 +42,6 @@ class CameraVC: UIViewController {
     // View Did Load.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     } // END View Did Load.
     
     
@@ -89,6 +96,12 @@ class CameraVC: UIViewController {
         let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
         
         settings.previewPhotoFormat = previewFormat
+        
+        if flashControlState == .off {
+            settings.flashMode = .off
+        } else {
+            settings.flashMode = .on
+        }
         
         cameraOutput.capturePhoto(with: settings, delegate: self)
     } // END Did Tap Camera View.
