@@ -81,7 +81,7 @@ class CameraVC: UIViewController {
     
     
     // Did Tap Camera View.
-    func didTapCameraView() {
+    @objc func didTapCameraView() {
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first! // first is basic iOS photo
         let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
