@@ -37,6 +37,7 @@ class CameraVC: UIViewController {
     @IBOutlet weak var confidenceLbl: UILabel!
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var roundedLblView: RoundedShadowView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // Functions
     
@@ -93,6 +94,10 @@ class CameraVC: UIViewController {
     
     // Did Tap Camera View.
     @objc func didTapCameraView() {
+        self.cameraView.isUserInteractionEnabled = false
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first! // first is basic iOS photo
         let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
@@ -186,12 +191,14 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
 
 extension CameraVC: AVSpeechSynthesizerDelegate {
     
-    //
+    // Did Finish Utterance.
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        // to code.
-    }
+        self.cameraView.isUserInteractionEnabled = true
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
+    } // END Did Finish Utterance.
     
-}
+} // END Extension.
 
 
 // NSCameraUsageDescription
