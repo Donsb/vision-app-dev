@@ -115,12 +115,18 @@ class CameraVC: UIViewController {
         
         for classification in results {
             if classification.confidence < 0.5 {
-                self.identificationLbl.text = "I'm not sure what this is.  Please try again."
+                let unknownObjectMessage = "I'm not sure what this is.  Please try again."
+                self.identificationLbl.text = unknownObjectMessage
                 self.confidenceLbl.text = ""
+                synthesizeSpeech(fromString: unknownObjectMessage)
                 break
             } else {
-                self.identificationLbl.text = classification.identifier
-                self.confidenceLbl.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+                var identification = classification.identifier
+                var confidence = Int(classification.confidence * 100)
+                self.identificationLbl.text = identification
+                self.confidenceLbl.text = "CONFIDENCE: \(confidence)%"
+                let completeSentence = "This looks like a \(identification) and I'm \(confidence) percent sure."
+                synthesizeSpeech(fromString: completeSentence)
                 break
             }
         }
@@ -188,7 +194,7 @@ extension CameraVC: AVSpeechSynthesizerDelegate {
 }
 
 
-
+// NSCameraUsageDescription
 
 
 
