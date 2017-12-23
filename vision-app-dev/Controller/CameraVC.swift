@@ -125,9 +125,23 @@ class CameraVC: UIViewController {
     } // END Results Method.
     
     
+    // Flash Button Was Pressed.
+    @IBAction func flashBtnWasPressed(_ sender: Any) {
+        switch flashControlState {
+        case .off:
+            flashBtn.setTitle("FLASH ON", for: .normal)
+            flashControlState = .on
+        case .on:
+            flashBtn.setTitle("FLASH OFF", for: .normal)
+            flashControlState = .on
+        }
+    } // Flash Button Was Pressed.
+    
+    
 } // END Class.
 
-//
+// Extensions
+
 extension CameraVC: AVCapturePhotoCaptureDelegate {
     
     // Photo Output.
