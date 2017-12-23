@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import CoreML
+import Vision
 
 class CameraVC: UIViewController {
     
@@ -92,6 +94,12 @@ class CameraVC: UIViewController {
     } // END Did Tap Camera View.
     
     
+    // Results Method.
+    func resultsMethod(request: VNRequest, error: Error?) {
+        // handle changing the label text.
+    } // END Results Method.
+    
+    
 } // END Class.
 
 //
@@ -103,6 +111,15 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
             debugPrint(error)
         } else {
             photoData = photo.fileDataRepresentation()
+            
+            do {
+                let model = try VNCoreMLModel(for: SqueezeNet().model)
+                let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod)
+                let handler = VNImageRequestHandler(data: photoData!)
+                try handler.perform([request])
+            } catch {
+                debugPrint(error)
+            }
             
             let image = UIImage(data: photoData!)
             self.captureImageView.image = image
