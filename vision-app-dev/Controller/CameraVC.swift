@@ -96,7 +96,18 @@ class CameraVC: UIViewController {
     
     // Results Method.
     func resultsMethod(request: VNRequest, error: Error?) {
-        // handle changing the label text.
+        guard let results = request.results as? [VNClassificationObservation] else { return }
+        
+        for classification in results {
+            if classification.confidence < 0.5 {
+                self.identificationLbl.text = "I'm not sure what this is.  Please try again."
+                self.confidenceLbl.text = ""
+                break
+            } else {
+                self.identificationLbl.text = classification.identifier
+                self.confidenceLbl.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+            }
+        }
     } // END Results Method.
     
     
