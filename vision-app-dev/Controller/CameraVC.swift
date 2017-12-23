@@ -106,6 +106,7 @@ class CameraVC: UIViewController {
             } else {
                 self.identificationLbl.text = classification.identifier
                 self.confidenceLbl.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+                break
             }
         }
     } // END Results Method.
