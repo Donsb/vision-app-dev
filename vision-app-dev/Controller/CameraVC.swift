@@ -52,6 +52,7 @@ class CameraVC: UIViewController {
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
         speechSynthesizer.delegate = self
+        spinner.isHidden = true
     } // END View Did Appear.
     
     
@@ -89,11 +90,13 @@ class CameraVC: UIViewController {
         } catch {
             debugPrint(error)
         }
+        
     } // END View Will Appear.
     
     
     // Did Tap Camera View.
     @objc func didTapCameraView() {
+        
         self.cameraView.isUserInteractionEnabled = false
         self.spinner.isHidden = false
         self.spinner.startAnimating()
@@ -111,11 +114,13 @@ class CameraVC: UIViewController {
         }
         
         cameraOutput.capturePhoto(with: settings, delegate: self)
+        
     } // END Did Tap Camera View.
     
     
     // Results Method.
     func resultsMethod(request: VNRequest, error: Error?) {
+        
         guard let results = request.results as? [VNClassificationObservation] else { return }
         
         for classification in results {
@@ -135,6 +140,7 @@ class CameraVC: UIViewController {
                 break
             }
         }
+        
     } // END Results Method.
     
     
@@ -166,6 +172,7 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
     
     // Photo Output.
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        
         if let error = error {
             debugPrint(error)
         } else {
@@ -182,6 +189,7 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
             
             let image = UIImage(data: photoData!)
             self.captureImageView.image = image
+            
         }
         
     } // END Photo Output.
@@ -199,23 +207,4 @@ extension CameraVC: AVSpeechSynthesizerDelegate {
     } // END Did Finish Utterance.
     
 } // END Extension.
-
-
-// NSCameraUsageDescription
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
