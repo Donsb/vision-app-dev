@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CameraVC: UIViewController {
     
-    //
+    // Instance Variables
+    
+    var captureSession: AVCaptureSession!
+    var cameraOutput: AVCapturePhotoOutput!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    // IBOutlets
     
     @IBOutlet weak var captureImageView: RoundedShadowImageView!
     @IBOutlet weak var flashBtn: RoundedShadowButton!
@@ -28,6 +35,11 @@ class CameraVC: UIViewController {
     } // END View Did Load.
     
     
+    // View Did Appear.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        previewLayer.frame = cameraView.bounds
+    } // END View Did Appear.
     
     
 } // END Class.
